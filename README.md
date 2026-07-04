@@ -7,7 +7,7 @@
 
 A low-latency, encrypted, multi-device walkie-talkie system built on the ESP32-C3 Pro Mini. This project utilizes the ESP-NOW protocol to broadcast real-time I2S digital audio to 10 or more devices simultaneously without the need for a Wi-Fi router. 
 
-It features an onboard web server with a modern Glassmorphism UI for configuring your network's encryption passcord on the fly.
+It features an onboard web server with a modern Glassmorphism UI for configuring your network's encryption password on the fly.
 
 ## ✨ Features
 
@@ -77,10 +77,10 @@ On first boot, or if you need to change your network password, the ESP32-C3 will
 
 1. Power on the walkie-talkie. (If a passcord was already saved, **touch and hold the TTP223 sensor** while powering it on to force it into Setup Mode).
 2. On your phone or computer, connect to the new Wi-Fi network:
-   * **SSID:** `ESP32-C3 Encrypted Walkie talkie AP`
+   * **SSID:** `ESP32-C3 Walkie-talkie setup`
    * **Password:** `Password@123`
-3. Open a web browser and navigate to `http://192.168.4.1`.
-4. You will see a blue (`#0484f8`) screen with a Glassmorphism card. Enter your **Secret Passcord** (ensure this matches exactly across all your devices).
+3. A portal should pop up if not open a web browser and navigate to `http://192.168.4.1`.
+4. You will see a blue (`#0484f8`) screen with a Glassmorphism card. Enter your **Secret Password** (ensure this matches exactly across all your devices).
 5. Click **Save & Restart**. The AP will turn off, and the device will reboot into normal Walkie-Talkie mode.
 
 ---
