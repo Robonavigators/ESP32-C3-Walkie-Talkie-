@@ -62,7 +62,7 @@ To maximize the ESP32-C3's limited GPIO pins, the Bit Clock (BCLK) and Word Sele
 
 ---
 
-## ⚡ Installation (Web Flasher)
+## ⚡ Installation
 
 The easiest way to install the firmware is directly through your web browser using Web Serial:
 
@@ -70,15 +70,6 @@ The easiest way to install the firmware is directly through your web browser usi
 2. Choose **ESP32-C3 Walkie Talkie Firmware** from the firmware menu.
 3. Click the connect button and select your ESP32-C3's COM/Serial port from the browser popup.
 4. Click upload to flash the firmware directly to your board.
-
-### 💻 Manual Installation (Arduino IDE)
-
-1. Install **Arduino IDE** and add the Espressif Board Manager URL.
-2. Install the **esp32** board package (Must be version `3.0.0` or higher).
-3. Select your board: `Tools > Board > ESP32C3 Dev Module`.
-4. Install the required libraries (if not natively included).
-5. Download the source code and flash
----
 
 ## ⚙️ Network Configuration (Captive Portal)
 
