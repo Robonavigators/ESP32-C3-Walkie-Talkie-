@@ -1,4 +1,4 @@
-# ESP32-C3 Walkie-Talkie Network
+# ESP32-C3 Walkie-Talkie 
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)
