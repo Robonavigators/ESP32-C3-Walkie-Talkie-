@@ -77,8 +77,7 @@ The easiest way to install the firmware is directly through your web browser usi
 2. Install the **esp32** board package (Must be version `3.0.0` or higher).
 3. Select your board: `Tools > Board > ESP32C3 Dev Module`.
 4. Install the required libraries (if not natively included).
-5. Flash the code to all ESP32-C3 devices on your network.
-
+5. Download the source code and flash
 ---
 
 ## ⚙️ Network Configuration (Captive Portal)
