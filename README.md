@@ -1,4 +1,4 @@
-# ESP32-C3 Encrypted Walkie-Talkie Network
+# ESP32-C3 Walkie-Talkie Network
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)
@@ -67,7 +67,7 @@ To maximize the ESP32-C3's limited GPIO pins, the Bit Clock (BCLK) and Word Sele
 The easiest way to install the firmware is directly through your web browser using Web Serial:
 
 1. Go to [Robonavigators ESP Flasher](https://robonavigators.github.io/flash.html).
-2. Choose **ESP32-C3 Encrypted Walkie Talkie Firmware** from the firmware menu.
+2. Choose **ESP32-C3 Walkie Talkie Firmware** from the firmware menu.
 3. Click the connect button and select your ESP32-C3's COM/Serial port from the browser popup.
 4. Click upload to flash the firmware directly to your board.
 
