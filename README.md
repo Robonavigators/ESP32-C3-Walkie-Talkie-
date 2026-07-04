@@ -5,11 +5,14 @@
 ![Hardware: ESP32-C3](https://img.shields.io/badge/Hardware-ESP32--C3%20Pro%20Mini-blue.svg)
 ![Audio: I2S](https://img.shields.io/badge/Audio-I2S%20Digital-orange.svg)
 
-A low-latency, encrypted, multi-device walkie-talkie system built on the ESP32-C3 Pro Mini. This project utilizes the ESP-NOW protocol to broadcast real-time I2S digital audio to 10 or more devices simultaneously without the need for a Wi-Fi router.
+A low-latency, encrypted, multi-device walkie-talkie system built on the ESP32-C3 Pro Mini. This project utilizes the ESP-NOW protocol to broadcast real-time I2S digital audio to 10 or more devices simultaneously without the need for a Wi-Fi router. 
+
+It features an onboard web server with a modern Glassmorphism UI for configuring your network's encryption passcord on the fly.
 
 ## ✨ Features
 
 * **Multi-Node Broadcast:** Supports 10+ devices on a single network using ESP-NOW universal broadcast.
+* **Web-Based Configuration:** Built-in Access Point and web server (Glass UI) to save and update the encryption passcord to non-volatile memory (NVS) without reflashing code.
 * **Application-Level Encryption:** Real-time XOR cipher to scramble audio data, ensuring privacy from unauthorized listeners.
 * **Capacitive Touch PTT:** Utilizes a TTP223 touch sensor for instant Push-to-Talk functionality.
 * **Power Management:** Double-tap the touch sensor to enter Deep Sleep; single touch to wake up.
@@ -59,12 +62,48 @@ To maximize the ESP32-C3's limited GPIO pins, the Bit Clock (BCLK) and Word Sele
 
 ---
 
-## 💻 Software Setup
+## ⚡ Installation (Web Flasher)
 
-1. **Install Arduino IDE** and add the Espressif Board Manager URL.
+The easiest way to install the firmware is directly through your web browser using Web Serial:
+
+1. Go to [Robonavigators ESP Flasher](https://robonavigators.github.io/flash.html).
+2. Choose **ESP32-C3 Encrypted Walkie Talkie Firmware** from the firmware menu.
+3. Click the connect button and select your ESP32-C3's COM/Serial port from the browser popup.
+4. Click upload to flash the firmware directly to your board.
+
+### 💻 Manual Installation (Arduino IDE)
+
+1. Install **Arduino IDE** and add the Espressif Board Manager URL.
 2. Install the **esp32** board package (Must be version `3.0.0` or higher).
 3. Select your board: `Tools > Board > ESP32C3 Dev Module`.
-4. Open the provided sketch and locate the security settings:
-   ```cpp
-   // Change this to a unique string for your specific network
-   const char* SECRET_PASSWORD = "YourCustomPasswordHere!";
+4. Install the required libraries (if not natively included).
+5. Flash the code to all ESP32-C3 devices on your network.
+
+---
+
+## ⚙️ Network Configuration (Captive Portal)
+
+On first boot, or if you need to change your network password, the ESP32-C3 will host its own Wi-Fi network to allow you to configure the shared Secret Passcord.
+
+1. Power on the walkie-talkie. (If a passcord was already saved, **touch and hold the TTP223 sensor** while powering it on to force it into Setup Mode).
+2. On your phone or computer, connect to the new Wi-Fi network:
+   * **SSID:** `ESP32-C3 Encrypted Walkie talkie AP`
+   * **Password:** `Password@123`
+3. Open a web browser and navigate to `http://192.168.4.1`.
+4. You will see a blue (`#0484f8`) screen with a Glassmorphism card. Enter your **Secret Passcord** (ensure this matches exactly across all your devices).
+5. Click **Save & Restart**. The AP will turn off, and the device will reboot into normal Walkie-Talkie mode.
+
+---
+
+## 🚀 Usage Guide
+
+* **Transmit:** Touch and hold your finger on the TTP223 sensor. Speak clearly into the INMP441 microphone.
+* **Receive:** Remove your finger from the sensor. The device will automatically play incoming audio from any authorized node.
+* **Sleep Mode:** Double-tap the TTP223 sensor quickly (within 1 second) to put the device into Deep Sleep and save battery.
+* **Wake Up:** Touch the TTP223 sensor once to wake the device back up. It will be ready to transmit or receive in under 2 seconds.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
