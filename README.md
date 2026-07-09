@@ -7,14 +7,15 @@
 
 A low-latency, encrypted, multi-device walkie-talkie system built on the Seeed Studio XIAO ESP32-C3. This project utilizes the ESP-NOW protocol to broadcast real-time I2S digital audio to 10 or more devices simultaneously without the need for a Wi-Fi router. 
 
-It features an onboard Captive Portal with a modern Glassmorphism UI for configuring your network's encryption password on the fly, and smart thermal throttling to keep the tiny board cool during continuous use.
+It features a built-in **Community Mesh Relay** system that automatically extends your physical range by bouncing encrypted signals through other nearby devices, all without compromising your voice privacy. Alongside this, an onboard Captive Portal with a modern Glassmorphism UI allows you to configure your network's encryption password on the fly.
 
 ## ✨ Features
 
+* **Community Mesh Relay:** Devices automatically act as stealth repeaters. Your encrypted signal hops through nearby radios to maximize distance, while unauthorized listeners hear only silence.
 * **Multi-Node Broadcast:** Supports 10+ devices on a single network using ESP-NOW universal broadcast.
 * **Captive Portal Configuration:** Built-in DNS server and Access Point (Glass UI) to easily save and update the encryption password to non-volatile memory (NVS).
-* **Application-Level Encryption:** Real-time XOR cipher to scramble audio data, ensuring privacy from unauthorized listeners.
-* **Smart Mechanical PTT:** Press and hold to transmit; single quick tap to reboot into network setup mode. Prevents accidental hot-mic broadcasts.
+* **Application-Level Encryption:** Real-time XOR cipher to scramble audio data, ensuring absolute privacy from unauthorized listeners.
+* **Smart Mechanical PTT:** Press and hold to transmit; single quick tap for Setup Mode; double tap for Deep Sleep. Prevents accidental hot-mic broadcasts.
 * **Thermal Throttling:** Automatically underclocks the CPU to 80MHz if the core temperature exceeds 65°C, restoring full 160MHz performance when cooled to 55°C.
 * **Maximized Range:** Software-forced maximum TX power (19.5 dBm) optimized for the XIAO's U.FL external antenna.
 * **Modern Core API:** Written using the `ESP_I2S.h` object-oriented drivers for Arduino ESP32 Core v3.3.5.
@@ -78,7 +79,7 @@ On first boot, or if you need to change your network password, the XIAO will hos
    * **SSID:** `XIAO Walkie-Talkie`
    * **Password:** `Password@123`
 3. A login portal should automatically appear on your screen. (If it does not, open a web browser and navigate to `http://192.168.4.1`).
-4. You will see a blue (`#0484f8`) screen with a Glassmorphism card. Enter your **Secret Password** (ensure this matches exactly across all your devices).
+4. You will see a blue (`#0484f8`) screen with a Glassmorphism card. Enter your **Secret Voice Password** (ensure this matches exactly across all your devices).
 5. Click **Save & Restart**. The AP will turn off, and the device will reboot into normal Walkie-Talkie mode.
 
 ---
@@ -87,7 +88,8 @@ On first boot, or if you need to change your network password, the XIAO will hos
 
 * **Transmit:** Press and hold the PTT button for more than 400 milliseconds. Speak clearly into the INMP441 microphone.
 * **Receive:** Release the button. The device will automatically play incoming audio from any authorized node.
-* **Setup Mode:** Tap the button quickly (less than 400ms) to trigger a reboot directly into the Wi-Fi Captive Portal for password changes.
+* **Setup Mode:** Tap the button quickly once (less than 400ms) to trigger a reboot directly into the Wi-Fi Captive Portal for password changes.
+* **Deep Sleep:** Double-tap the button quickly to power down the radio and enter ultra-low-power mode. Press the button again to wake the device back up.
 
 ---
 
